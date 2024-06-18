@@ -142,7 +142,6 @@ const DemoLine = () => {
             setINameSel(label.label);
           }
           // console.log(label.label)
-          // window.location.reload()
         }
       />
       {graph}
