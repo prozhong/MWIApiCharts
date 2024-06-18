@@ -153,7 +153,6 @@ const DemoLine = () => {
   );
 };
 
-// ReactDOM.render(<DemoLine />, document.getElementById('container'));
 function App() {
   return (
     <>
