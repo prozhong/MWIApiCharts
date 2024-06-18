@@ -4,10 +4,10 @@ name: Deploy static content to Pages
 on:
   # 仅在推送到默认分支时运行。
   push:
-    branches: ['main']
+    branches: ["main"]
 
   # 这个选项可以使你手动在 Action tab 页面触发工作流
-  workflow_dispatch:
+  workflow_dispatch: true
 
 # 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages。
 permissions:
@@ -17,7 +17,7 @@ permissions:
 
 # 允许一个并发的部署
 concurrency:
-  group: 'pages'
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
       - name: Install dependencies
         run: npm ci
       - name: Build
@@ -45,7 +45,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist folder
-          path: './dist'
+          path: "./dist"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
