@@ -23,4 +23,11 @@ jobs:
         with:
           node-version: 20
       - name: Run.js
-        run: node ./src/data/run.js
+        run: node ./src/data/run.cjs
+      - name: Commit changes
+        run: |
+          git config --global user.email "prozhong@msn.cn"
+          git config --global user.name "prozhong"
+          git add ./src/data/data.json
+          git commit -m "Auto commit at $(date)"
+          git push
