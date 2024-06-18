@@ -157,7 +157,6 @@ const DemoLine = () => {
 function App() {
   return (
     <>
-      {/* <SelectComponent /> */}
       <DemoLine />
     </>
   );
