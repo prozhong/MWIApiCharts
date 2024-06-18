@@ -138,7 +138,6 @@ const DemoLine = () => {
         options={curOptions}
         onChange={
           (value, label) => {
-            // itemNameSelected = label.label;
             setINameSel(label.label);
           }
           // console.log(label.label)
