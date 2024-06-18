@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/charts": "^2.1.1",
+    "antd": "^5.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
