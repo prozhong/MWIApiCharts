@@ -67,7 +67,7 @@ function queryEachFile() {
             parsedJson.market[key].bid,
             parsedJson.time
           );
-            console.log(key);
+          // console.log(key);
         }
       });
     })
@@ -106,11 +106,11 @@ https
 // console.log(shaList.length);
 setTimeout(() => {
   let jsonString = JSON.stringify(itemsList);
-  fs.writeFile("data.json", jsonString, (err) => {
+  fs.writeFile("./src/data/data.json", jsonString, (err) => {
     if (err) {
       console.error("Error writing file:", err);
       return;
     }
     console.log("JSON data has been stored in data.json");
   });
-}, 15000);
+}, 5000);
