@@ -23,8 +23,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: GetSQLiteFile
+        run: node ./src/data/download.cjs
       - name: Run.js
-        run: node ./src/data/run.cjs
+        run: node ./src/data/readSQLite.cjs
       - name: Commit changes
         run: |
           git config --global user.email "prozhong@msn.cn"
