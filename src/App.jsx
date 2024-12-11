@@ -3,7 +3,6 @@ import "./App.css";
 // import ReactDOM from 'react-dom';
 import { Line } from "@ant-design/plots";
 import { Select } from "antd";
-import iSelections from "./ItemsSelection.json";
 import _data from "./data/data.json";
 
 let naviLang = navigator.language || navigator.userLanguage;
@@ -12,10 +11,9 @@ const uiText = { serch: "Search to Select" };
 if (iszhCN) {
   uiText.serch = "仅支持英文搜索";
 }
-let items = iSelections.market;
 let curOptions = [];
 let i = 1;
-for (const key in items) {
+for (const key in _data) {
   let option = { value: i, label: key };
   curOptions.push(option);
   i++;
