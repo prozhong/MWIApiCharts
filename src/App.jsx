@@ -4,17 +4,18 @@ import "./App.css";
 import { Line } from "@ant-design/plots";
 import { Select } from "antd";
 import _data from "./data/data.json";
+import _itemsZHMap from "./data/itemNameToZH.json";
 
 let naviLang = navigator.language || navigator.userLanguage;
 let iszhCN = naviLang === "zh-CN";
 const uiText = { serch: "Search to Select" };
 if (iszhCN) {
-  uiText.serch = "仅支持英文搜索";
+  uiText.serch = "仅支持中文搜索";
 }
 let curOptions = [];
 let i = 1;
 for (const key in _data) {
-  let option = { value: i, label: key };
+  let option = { value: i, label: _itemsZHMap[key] || key, key: key };
   curOptions.push(option);
   i++;
 }
@@ -120,8 +121,6 @@ const DemoLine = () => {
         showSearch
         style={{
           width: 200,
-          // marginLeft:0,
-          // marginTop:0
         }}
         placeholder={uiText.serch}
         optionFilterProp="children"
@@ -135,16 +134,15 @@ const DemoLine = () => {
         }
         options={curOptions}
         onChange={
-          (value, label) => {
-            setINameSel(label.label);
+          (value, option) => {
+            setINameSel(option.key);
           }
-          // console.log(label.label)
         }
       />
       {graph}
       <br></br>
       <br></br>
-      <br></br>last update : {showDataStr.toLocaleString()}
+      <br></br>数据更新时间 : {showDataStr.toLocaleString()}
     </div>
   );
 };
