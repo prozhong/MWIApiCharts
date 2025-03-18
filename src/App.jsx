@@ -10,7 +10,7 @@ let naviLang = navigator.language || navigator.userLanguage;
 let iszhCN = naviLang === "zh-CN";
 const uiText = { serch: "Search to Select" };
 if (iszhCN) {
-  uiText.serch = "仅支持中文搜索";
+  uiText.serch = "支持中/英文搜索";
 }
 let curOptions = [];
 let i = 1;
@@ -125,6 +125,7 @@ const DemoLine = () => {
         placeholder={uiText.serch}
         optionFilterProp="children"
         filterOption={(input, option) =>
+          (option?.key ?? "").toLowerCase().includes(input.toLowerCase()) || 
           (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
         }
         filterSort={(optionA, optionB) =>
