@@ -15,7 +15,7 @@ if (iszhCN) {
 let curOptions = [];
 let i = 1;
 for (const key in _data) {
-  let option = { value: i, label: _itemsZHMap[key] || key, key: key };
+  let option = { value: i, label: iszhCN?(_itemsZHMap[key]|| key): key, key: key };
   curOptions.push(option);
   i++;
 }
@@ -143,7 +143,7 @@ const DemoLine = () => {
       {graph}
       <br></br>
       <br></br>
-      <br></br>数据更新时间 : {showDataStr.toLocaleString()}
+      <br></br>last update : {showDataStr.toLocaleString()}
     </div>
   );
 };
